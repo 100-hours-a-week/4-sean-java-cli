@@ -1,0 +1,30 @@
+
+
+java:S11920"HDefine a constant instead of duplicating this literal "Healthy" 6 times.(¾³¤–øÿÿÿÿ8äÎğªù1J$4dc6ec80-c94f-4ef2-9282-116cd42d259a
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¼é£ìşÿÿÿÿ8çÎğªù1J$c123fe4c-a974-49e1-8640-74515d324dd9
+m	java:S106"+Replace this use of System.out by a logger.(Ï±úş8ñÎğªù1J$61d7d883-8ce4-4363-a8e9-8296f5dab879
+r	java:S106"+Replace this use of System.out by a logger.(ŒÂÏíûÿÿÿÿ8òÎğªù1J$53f4b779-8f24-4123-9874-a4528c48f763
+r	java:S106"+Replace this use of System.out by a logger.(Úş®¬şÿÿÿÿ8óÎğªù1J$7d410b15-7b9d-4bf0-9863-c82dde857da4
+r	java:S106"+Replace this use of System.out by a logger.(–†ğÅøÿÿÿÿ8óÎğªù1J$115c619f-7a1f-4ace-846d-55747179eb05
+m	java:S106"+Replace this use of System.out by a logger.(•š´²8ôÎğªù1J$9ddfd95c-a6c3-4de0-9c2f-e3b1fa9b782b
+m	java:S106"+Replace this use of System.out by a logger.(Ê¿ÿ‚8ôÎğªù1J$fc0ac7c0-cdf3-45a0-8385-290293bd2990
+m	java:S106"+Replace this use of System.out by a logger.(ÅÆà8õÎğªù1J$3d0caba4-5fd9-48dd-864e-cf0b5bd89f52
+‰
+java:S6201"FReplace this instanceof check and cast with 'instanceof Cactus cactus'(Ååá’8¬ÇÓ´ù1J$d7c07a44-b22e-45ab-84d1-66138b88c3c4
+r	java:S106"+Replace this use of System.out by a logger.(Ù¤è®úÿÿÿÿ8öÎğªù1J$d2fde0fc-2b5f-42c8-bb48-9dbd4be1522f
+…
+java:S6201"BReplace this instanceof check and cast with 'instanceof Herb herb'(ûÌü¿8¯ÇÓ´ù1J$1cae5e4d-1b40-41ea-9c81-45155b9a98f7
+r	java:S106!"+Replace this use of System.out by a logger.(„©í«ùÿÿÿÿ8öÎğªù1J$d2373c31-d361-486b-999d-f4b47248cfcb
+r	java:S106%"+Replace this use of System.out by a logger.(ÁÎ¼ÿÿÿÿÿ8öÎğªù1J$628ec451-05ef-4598-bf15-185b23489ad4
+š
+java:S3776j"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ˆ£Éøÿÿÿÿ8üÎğªù1J$ff73e89e-5645-4319-b88f-1d525c54f79a
+‰
+java:S6201t"FReplace this instanceof check and cast with 'instanceof Cactus cactus'(Ååá’8¿ÇÓ´ù1J$8e90aafd-5c89-4184-852e-d4c40c6f64f8
+‰
+java:S6201t"FReplace this instanceof check and cast with 'instanceof Cactus cactus'(Ååá’8ÂÇÓ´ù1J$4a47b29b-a8a2-41e7-aa7a-6bb01f20575b
+…
+java:S6201v"BReplace this instanceof check and cast with 'instanceof Herb herb'(ûÌü¿8ÆÇÓ´ù1J$efd7db70-b115-4310-997e-916e1fd9fc0c
+…
+java:S6201v"BReplace this instanceof check and cast with 'instanceof Herb herb'(ûÌü¿8ÆÇÓ´ù1J$06fec92b-377f-4f3d-b2b4-c12a5a0b1613
+s	java:S106¡"+Replace this use of System.out by a logger.(Å”É›ıÿÿÿÿ8‚Ïğªù1J$bdcdcab2-a696-426e-9916-9f26d7a70033
+n	java:S106¢"+Replace this use of System.out by a logger.(³Ü¶8‚Ïğªù1J$f2b71111-9acb-4503-bde1-dd6d27e1a9e8
