@@ -169,4 +169,17 @@ public class PlantManager {
             }
         }
     }
+
+    public void updatePlantStatePeriodically() {
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                Thread.sleep(10000); // 10초마다 업데이트
+                passDay();
+                System.out.println("Plant state updated automatically.");
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+    }
 }
