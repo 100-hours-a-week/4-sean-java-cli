@@ -1,4 +1,7 @@
-package org.Growingplant;
+package org.Growingplant.Plants;
+
+import org.Growingplant.PlantManagement.PlantGrowth;
+import org.Growingplant.PlantManagement.PlantState;
 
 public class Plant {
     private int properMoistureCondition;

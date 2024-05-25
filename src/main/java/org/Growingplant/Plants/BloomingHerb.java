@@ -1,4 +1,4 @@
-package org.Growingplant;
+package org.Growingplant.Plants;
 
 public class BloomingHerb extends Herb {
     public BloomingHerb() {

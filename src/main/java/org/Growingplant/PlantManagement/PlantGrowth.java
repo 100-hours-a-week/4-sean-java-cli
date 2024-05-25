@@ -1,4 +1,4 @@
-package org.Growingplant;
+package org.Growingplant.PlantManagement;
 
 public class PlantGrowth {
     private String growStep;

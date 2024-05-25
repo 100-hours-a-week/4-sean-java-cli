@@ -1,6 +1,6 @@
-package org.Growingplant;
+package org.Growingplant.Plants;
 
-public class BloomingCactus extends Cactus{
+public class BloomingCactus extends Cactus {
     public BloomingCactus(){
         super();
     }

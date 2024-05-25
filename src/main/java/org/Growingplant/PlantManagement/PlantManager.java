@@ -1,6 +1,6 @@
-package org.Growingplant;
-import java.util.ArrayList;
-import java.util.List;
+package org.Growingplant.PlantManagement;
+import org.Growingplant.Plants.*;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class PlantManager {
     private Plant plant; // Plant 클래스 인스턴스를 참조하는 변수 Plant 객체를 관리하고 조작하는데 사용
@@ -15,15 +15,16 @@ public class PlantManager {
         }
     }
 
-    public void plantCondition() { // 새로운 PlantCondition 함수
+    public void plantCondition() {
+        // 새로운 PlantCondition 함수
         if (plant != null) {
             PlantState state = plant.getState();
             PlantGrowth growth = plant.getGrowth();
-            System.out.println("Current health status: " + state.getHealthCondition());
+            System.out.println("\nCurrent health status: " + state.getHealthCondition());
             System.out.println("Current grow step: " + growth.getGrowStep());
             System.out.println("Grown days: " + growth.getDaysGrown());
             System.out.println("Current stage: " + growth.getGrowStep());
-            System.out.println("Days in current stage: " + growth.getDaysInCurrentStage());
+            System.out.println("Days in current stage: " + growth.getDaysInCurrentStage() + "\n");
 
             if (plant instanceof Cactus) {
                 Cactus cactus = (Cactus) plant;
@@ -158,8 +159,8 @@ public class PlantManager {
             }
 
             // 상태 출력
-            System.out.println("Moisture Condition: " + moistureCondition);
-            System.out.println("Lighting Condition: " + lightingCondition);
+            System.out.println("\nMoisture Condition: " + moistureCondition);
+            System.out.println("Lighting Condition: " + lightingCondition + "\n");
 
             // 종합 건강 상태 확인
             if ("Moisture OK".equals(moistureCondition) && "Lighting OK".equals(lightingCondition)) {
@@ -170,16 +171,4 @@ public class PlantManager {
         }
     }
 
-    public void updatePlantStatePeriodically() {
-        while (!Thread.currentThread().isInterrupted()) {
-            try {
-                Thread.sleep(10000); // 10초마다 업데이트
-                passDay();
-                System.out.println("Plant state updated automatically.");
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                break;
-            }
-        }
-    }
 }
