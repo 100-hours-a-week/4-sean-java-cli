@@ -4,10 +4,12 @@ public class PlantState {
     private int currentMoistureStatus;
     private int currentLightingStatus;
     private String healthCondition;
+    private static final int DEFAULT_MOISTURE_STATUS = 4; //하드코딩 되어있던 값 static final 변수로 관리
+    private static final int DEFAULT_LIGHTING_STATUS = 4;
 
     public PlantState() {
-        this.currentMoistureStatus = 4;
-        this.currentLightingStatus = 4;
+        this.currentMoistureStatus = DEFAULT_MOISTURE_STATUS;
+        this.currentLightingStatus = DEFAULT_LIGHTING_STATUS;
         this.healthCondition = "Healthy";
     }
 

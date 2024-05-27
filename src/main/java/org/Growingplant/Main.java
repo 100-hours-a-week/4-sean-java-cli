@@ -1,11 +1,12 @@
 package org.Growingplant;
 import org.Growingplant.PlantManagement.PlantManager;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicInteger;
 
+// todo: fixme: 활용하기
 
 public class Main {
     public static void main(String[] args) {
@@ -35,7 +36,7 @@ public class Main {
                                 } else if (currentCount == 3) {
                                     System.out.println("\n식물에게 관심을 주지 않고 하루가 지났습니다.");
                                     manager.passDay();
-                                    count.set(0); // 하루가 지났으므로 카운트를 리셋합니다.
+                                    count.set(0); // 하루가 지났으므로 카운트를 리셋
                                     printMenu();
                                 }
                                 lastActionTime.set(currentTime); // 타이머 리셋
@@ -48,6 +49,30 @@ public class Main {
             }
         });
         updaterThread.start();
+
+        // Plant interaction thread
+        Thread interactionThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (running.get()) {
+                    try {
+                        if (plantSelected.get()) {
+                            if (count.get() == 1) {
+                                manager.setSunlightIncreaseValue(2); // 점심에 2로 설정
+                            } else if (count.get() == 2) {
+                                manager.setSunlightIncreaseValue(1); // 저녁에 1로 설정
+                            } else {
+                                manager.setSunlightIncreaseValue(3); // 나머지 시간에 3으로 설정
+                            }
+                        }
+                        Thread.sleep(1000); // 1초마다 체크
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }
+        });
+        interactionThread.start();
 
         try {
             while (running.get()) {
@@ -72,30 +97,31 @@ public class Main {
                             case 3:
                                 manager.passDay();
                                 lastActionTime.set(System.currentTimeMillis()); // 타이머 리셋
-                                count.set(0); // 하루가 지났으므로 카운트를 리셋합니다.
+                                count.set(0);
                                 break;
                             case 4:
                                 manager.increaseSunlight();
                                 lastActionTime.set(System.currentTimeMillis()); // 타이머 리셋
-                                count.set(0); // 하루가 지났으므로 카운트를 리셋합니다.
+                                count.set(0);
                                 break;
                             case 5:
                                 manager.decreaseSunlight();
                                 lastActionTime.set(System.currentTimeMillis()); // 타이머 리셋
-                                count.set(0); // 하루가 지났으므로 카운트를 리셋합니다.
-
+                                count.set(0);
                                 break;
                             case 6:
                                 manager.waterPlant();
                                 lastActionTime.set(System.currentTimeMillis()); // 타이머 리셋
-                                count.set(0); // 하루가 지났으므로 카운트를 리셋합니다.
+                                count.set(0);
                                 break;
                             case 7:
                                 System.out.println("Exiting program...");
                                 running.set(false);
                                 updaterThread.interrupt();
+                                interactionThread.interrupt();
                                 try {
                                     updaterThread.join();
+                                    interactionThread.join();
                                 } catch (InterruptedException e) {
                                     Thread.currentThread().interrupt();
                                 }
@@ -107,9 +133,12 @@ public class Main {
                         System.out.println("Invalid input. Please enter a number.");
                         scanner.nextLine();
                     }
-                } catch (Exception e) {
-                    System.out.println("An error occurred: " + e.getMessage());
-                    scanner.nextLine(); // 예외 발생 시 잘못된 입력 처리
+                } catch (InputMismatchException e) {
+                    System.out.println("An input error occurred: " + e.getMessage());
+                    scanner.nextLine();
+                    e.printStackTrace();
+                    System.out.println(e.getClass().getName()+"예외가" + e.getMessage()+"때문에 발생했습니다.");
+                    // exception e << 포괄적인 오류처리 부분을 scanner 입력처리 때 발생할 수 있는 일번적인 예외로 처리
                 }
             }
         } finally {

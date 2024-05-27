@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class PlantManager {
     private Plant plant; // Plant 클래스 인스턴스를 참조하는 변수 Plant 객체를 관리하고 조작하는데 사용
+    private int sunlightIncreaseValue = 3; // 기본 채광량 증가 값
 
     public void addPlant(String type) {
         if ("Cactus".equalsIgnoreCase(type)) {
@@ -65,10 +66,12 @@ public class PlantManager {
             if ("Healthy".equals(state.getHealthCondition())) {
                 growth.setDaysInCurrentStage(growth.getDaysInCurrentStage() + 1);
             }
-            state.setCurrentLightingStatus(state.getCurrentLightingStatus() + 2);
+            state.setCurrentLightingStatus(state.getCurrentLightingStatus() + sunlightIncreaseValue);
             state.setCurrentMoistureStatus(state.getCurrentMoistureStatus() - 1);
             updateHealthCondition();
             updateGrowthStage();
+            System.out.println("Sunlight increased by " + sunlightIncreaseValue);
+
         }
     }
 
@@ -170,5 +173,10 @@ public class PlantManager {
             }
         }
     }
-
+    public void setSunlightIncreaseValue(int value) {
+        this.sunlightIncreaseValue = value;
+    }
+    public int getSunlightIncreaseValue() {
+        return sunlightIncreaseValue;
+    }
 }

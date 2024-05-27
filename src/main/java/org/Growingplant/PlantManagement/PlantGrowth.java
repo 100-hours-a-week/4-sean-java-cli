@@ -1,6 +1,10 @@
 package org.Growingplant.PlantManagement;
 
 public class PlantGrowth {
+    private static final String SEEDING_STAGE = "Seeding Stage";
+    private static final String VEGETATIVE_STAGE = "Vegetative Stage";
+    private static final String BLOOMING_STAGE = "Blooming Stage";
+
     private String growStep;
     private int daysGrown;
     private int daysInCurrentStage;
@@ -47,12 +51,12 @@ public class PlantGrowth {
     }
 
     public void progressToNextStage() {
-        if ("Seeding Stage".equals(this.growStep)) {
-            this.growStep = "Vegetative Stage";
+        if (SEEDING_STAGE.equals(this.growStep)) {
+            this.growStep = VEGETATIVE_STAGE;
             this.daysInCurrentStage = 0;
             System.out.println("The plant has progressed to the Vegetative Stage.");
-        } else if ("Vegetative Stage".equals(this.growStep)) {
-            this.growStep = "Blooming Stage";
+        } else if (VEGETATIVE_STAGE.equals(this.growStep)) {
+            this.growStep = BLOOMING_STAGE;
             this.daysInCurrentStage = 0;
             System.out.println("The plant has progressed to the Blooming Stage.");
         }
